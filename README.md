@@ -1,4 +1,4 @@
-# Tic Tac Toe Game 🕹️
+# Tic Tac Toe Game 
 
 A simple command-line implementation of the classic Tic Tac Toe game using Python. Two players can take turns to play, and the game checks for a winner or a draw.
 

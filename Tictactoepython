@@ -31,9 +31,10 @@ def tic_tac_toe():
     """
     Main function to play the Tic Tac Toe game.
     """
+    # Initialize a 3x3 board with empty spaces
     board = [[" " for _ in range(3)] for _ in range(3)]
-    players = ["X", "O"]
-    current_player = 0
+    players = ["X", "O"]  # Define the two players
+    current_player = 0  # Player X starts the game
 
     print("Welcome to Tic Tac Toe!")
     print_board(board)
@@ -41,25 +42,28 @@ def tic_tac_toe():
     while True:
         print(f"Player {players[current_player]}'s turn.")
         try:
+            # Get the row and column input from the user
             row, col = map(int, input("Enter row and column (0, 1, or 2 separated by space): ").split())
         except ValueError:
             print("Invalid input. Please enter two numbers separated by a space.")
             continue
 
-        # Validate move
+        # Validate the move
         if 0 <= row < 3 and 0 <= col < 3 and board[row][col] == " ":
             board[row][col] = players[current_player]
             print_board(board)
 
-            # Check for winner or draw
+            # Check for a winner
             if check_winner(board, players[current_player]):
                 print(f"Player {players[current_player]} wins!")
                 break
+
+            # Check for a draw
             if is_draw(board):
                 print("It's a draw!")
                 break
 
-            # Switch player
+            # Switch to the other player
             current_player = 1 - current_player
         else:
             print("Invalid move. Try again.")
